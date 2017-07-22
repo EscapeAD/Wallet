@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "assert": "^1.4.1",
+    "axios": "^0.16.2",
+    "base58": "^1.0.1",
     "browserify-zlib": "^0.1.4",
     "buffer": "^4.9.1",
     "console-browserify": "^1.1.0",
