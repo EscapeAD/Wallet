@@ -6,17 +6,14 @@ import Bitcoin from 'react-native-bitcoinjs-lib';
 import Base58 from 'base58';
 import axios from 'axios';
 
-
-
-
 export default class App extends Component {
   
   state = {bitcoinAdresss: "no Data", keypairdata: "no Data", privateKey: "none", balance: "no Data",n_tx: "no Data", total_received: "no Data"}
 
   componentWillMount(){
-    AsyncStorage.getItem('@CurrentStore').then((store)=>{
+    AsyncStorage.getItem("CurrentStore").then((err, store)=>{
       if(store){
-        this.setState(store)
+        console.log(store)
       }
     })
   }
@@ -43,7 +40,7 @@ export default class App extends Component {
                   })
                   
     // console.log(keypair)
-    if(this.state.keypairdata != 'none'){
+    if(this.state.keypairdata != "no Data"){
       console.log(this.state.keypairdata.toWIF())
     }
   }
@@ -63,7 +60,7 @@ export default class App extends Component {
   }
   
   saveState(){
-      AsyncStorage.setItem('@CurrentStore', this.state);
+      AsyncStorage.setItem("CurrentStore", this.state.keypairdata);
   }
   
   render() {
@@ -118,7 +115,11 @@ export default class App extends Component {
               </Text>
               
               <Text>
-              Balance check via blockchain.info: 
+              Check via blockchain.info
+              </Text>
+              
+              <Text>
+              Balance: 
               </Text>
               
               <Text>
